@@ -12,7 +12,6 @@
 		85C7DD921D1FAF95007D1751 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7DD911D1FAF95007D1751 /* ViewController.m */; };
 		85C7DD951D1FAF95007D1751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C7DD931D1FAF95007D1751 /* Main.storyboard */; };
 		85C7DD971D1FAF95007D1751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C7DD961D1FAF95007D1751 /* Assets.xcassets */; };
-		85C7DD9A1D1FAF95007D1751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C7DD981D1FAF95007D1751 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		85C7DD911D1FAF95007D1751 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		85C7DD941D1FAF95007D1751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85C7DD961D1FAF95007D1751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		85C7DD991D1FAF95007D1751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85C7DD9B1D1FAF95007D1751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,10 +60,6 @@
 				85C7DD8E1D1FAF95007D1751 /* AppDelegate.m */,
 				85C7DD901D1FAF95007D1751 /* ViewController.h */,
 				85C7DD911D1FAF95007D1751 /* ViewController.m */,
-				85C7DD931D1FAF95007D1751 /* Main.storyboard */,
-				85C7DD961D1FAF95007D1751 /* Assets.xcassets */,
-				85C7DD981D1FAF95007D1751 /* LaunchScreen.storyboard */,
-				85C7DD9B1D1FAF95007D1751 /* Info.plist */,
 				85C7DD8A1D1FAF95007D1751 /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -74,6 +68,9 @@
 		85C7DD8A1D1FAF95007D1751 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				85C7DD961D1FAF95007D1751 /* Assets.xcassets */,
+				85C7DD931D1FAF95007D1751 /* Main.storyboard */,
+				85C7DD9B1D1FAF95007D1751 /* Info.plist */,
 				85C7DD8B1D1FAF95007D1751 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -137,7 +134,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85C7DD9A1D1FAF95007D1751 /* LaunchScreen.storyboard in Resources */,
 				85C7DD971D1FAF95007D1751 /* Assets.xcassets in Resources */,
 				85C7DD951D1FAF95007D1751 /* Main.storyboard in Resources */,
 			);
@@ -165,14 +161,6 @@
 				85C7DD941D1FAF95007D1751 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		85C7DD981D1FAF95007D1751 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85C7DD991D1FAF95007D1751 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -264,6 +252,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiandougang.-----";
@@ -275,6 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiandougang.-----";
@@ -301,6 +291,7 @@
 				85C7DDA01D1FAF95007D1751 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
