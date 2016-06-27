@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		85C7DD8C1D1FAF95007D1751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7DD8B1D1FAF95007D1751 /* main.m */; };
 		85C7DD8F1D1FAF95007D1751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7DD8E1D1FAF95007D1751 /* AppDelegate.m */; };
-		85C7DD921D1FAF95007D1751 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7DD911D1FAF95007D1751 /* ViewController.m */; };
 		85C7DD951D1FAF95007D1751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C7DD931D1FAF95007D1751 /* Main.storyboard */; };
 		85C7DD971D1FAF95007D1751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C7DD961D1FAF95007D1751 /* Assets.xcassets */; };
+		85FFDE811D21712900DC9544 /* XMGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FFDE801D21712900DC9544 /* XMGTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,11 +19,11 @@
 		85C7DD8B1D1FAF95007D1751 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		85C7DD8D1D1FAF95007D1751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		85C7DD8E1D1FAF95007D1751 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		85C7DD901D1FAF95007D1751 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		85C7DD911D1FAF95007D1751 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		85C7DD941D1FAF95007D1751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85C7DD961D1FAF95007D1751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85C7DD9B1D1FAF95007D1751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85FFDE7F1D21712900DC9544 /* XMGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTabBarController.h; sourceTree = "<group>"; };
+		85FFDE801D21712900DC9544 /* XMGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			children = (
 				85C7DD8D1D1FAF95007D1751 /* AppDelegate.h */,
 				85C7DD8E1D1FAF95007D1751 /* AppDelegate.m */,
-				85C7DD901D1FAF95007D1751 /* ViewController.h */,
-				85C7DD911D1FAF95007D1751 /* ViewController.m */,
+				85FFDE7F1D21712900DC9544 /* XMGTabBarController.h */,
+				85FFDE801D21712900DC9544 /* XMGTabBarController.m */,
 				85C7DD8A1D1FAF95007D1751 /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -102,6 +102,7 @@
 		85C7DD7F1D1FAF95007D1751 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = XMG;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = apple;
 				TargetAttributes = {
@@ -146,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85C7DD921D1FAF95007D1751 /* ViewController.m in Sources */,
+				85FFDE811D21712900DC9544 /* XMGTabBarController.m in Sources */,
 				85C7DD8F1D1FAF95007D1751 /* AppDelegate.m in Sources */,
 				85C7DD8C1D1FAF95007D1751 /* main.m in Sources */,
 			);

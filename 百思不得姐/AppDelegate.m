@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "XMGTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +25,11 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     //设置窗口的根控件器
-    self.window.rootViewController = [[ViewController alloc] init];
+    XMGTabBarController *tabBarController = [[XMGTabBarController alloc] init];
+ 
+   
+    
+    self.window.rootViewController = tabBarController;
     
     //显示窗口
     [self.window makeKeyAndVisible];
