@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		856272C31D22B09D00630FB5 /* XMGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 856272C21D22B09D00630FB5 /* XMGEssenceViewController.m */; };
+		856272C61D22B10500630FB5 /* XMGNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 856272C51D22B10500630FB5 /* XMGNewViewController.m */; };
+		856272C91D22B17E00630FB5 /* XMGFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 856272C81D22B17E00630FB5 /* XMGFriendTrendsViewController.m */; };
+		856272CC1D22B19100630FB5 /* XMGMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 856272CB1D22B19100630FB5 /* XMGMeViewController.m */; };
 		85C7DD8C1D1FAF95007D1751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7DD8B1D1FAF95007D1751 /* main.m */; };
 		85C7DD8F1D1FAF95007D1751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7DD8E1D1FAF95007D1751 /* AppDelegate.m */; };
 		85C7DD951D1FAF95007D1751 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C7DD931D1FAF95007D1751 /* Main.storyboard */; };
 		85C7DD971D1FAF95007D1751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C7DD961D1FAF95007D1751 /* Assets.xcassets */; };
+		85EE0BED1D240356006AA28A /* XMGTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE0BEC1D240356006AA28A /* XMGTabBar.m */; };
+		85EE0BF01D240371006AA28A /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE0BEF1D240371006AA28A /* UIView+XMGExtension.m */; };
 		85FFDE811D21712900DC9544 /* XMGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FFDE801D21712900DC9544 /* XMGTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		856272C11D22B09D00630FB5 /* XMGEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGEssenceViewController.h; sourceTree = "<group>"; };
+		856272C21D22B09D00630FB5 /* XMGEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGEssenceViewController.m; sourceTree = "<group>"; };
+		856272C41D22B10500630FB5 /* XMGNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGNewViewController.h; sourceTree = "<group>"; };
+		856272C51D22B10500630FB5 /* XMGNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGNewViewController.m; sourceTree = "<group>"; };
+		856272C71D22B17E00630FB5 /* XMGFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGFriendTrendsViewController.h; sourceTree = "<group>"; };
+		856272C81D22B17E00630FB5 /* XMGFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGFriendTrendsViewController.m; sourceTree = "<group>"; };
+		856272CA1D22B19100630FB5 /* XMGMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGMeViewController.h; sourceTree = "<group>"; };
+		856272CB1D22B19100630FB5 /* XMGMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGMeViewController.m; sourceTree = "<group>"; };
 		85C7DD871D1FAF95007D1751 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C7DD8B1D1FAF95007D1751 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		85C7DD8D1D1FAF95007D1751 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -22,6 +36,11 @@
 		85C7DD941D1FAF95007D1751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85C7DD961D1FAF95007D1751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85C7DD9B1D1FAF95007D1751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EE0BEB1D240356006AA28A /* XMGTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTabBar.h; sourceTree = "<group>"; };
+		85EE0BEC1D240356006AA28A /* XMGTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTabBar.m; sourceTree = "<group>"; };
+		85EE0BEE1D240371006AA28A /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
+		85EE0BEF1D240371006AA28A /* UIView+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMGExtension.m"; sourceTree = "<group>"; };
+		85EE0BF11D24037D006AA28A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		85FFDE7F1D21712900DC9544 /* XMGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTabBarController.h; sourceTree = "<group>"; };
 		85FFDE801D21712900DC9544 /* XMGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,10 +75,23 @@
 		85C7DD891D1FAF95007D1751 /* 百思不得姐 */ = {
 			isa = PBXGroup;
 			children = (
+				85EE0BF11D24037D006AA28A /* PrefixHeader.pch */,
+				85EE0BEB1D240356006AA28A /* XMGTabBar.h */,
+				85EE0BEC1D240356006AA28A /* XMGTabBar.m */,
+				85EE0BEE1D240371006AA28A /* UIView+XMGExtension.h */,
+				85EE0BEF1D240371006AA28A /* UIView+XMGExtension.m */,
 				85C7DD8D1D1FAF95007D1751 /* AppDelegate.h */,
 				85C7DD8E1D1FAF95007D1751 /* AppDelegate.m */,
 				85FFDE7F1D21712900DC9544 /* XMGTabBarController.h */,
 				85FFDE801D21712900DC9544 /* XMGTabBarController.m */,
+				856272C11D22B09D00630FB5 /* XMGEssenceViewController.h */,
+				856272C21D22B09D00630FB5 /* XMGEssenceViewController.m */,
+				856272C41D22B10500630FB5 /* XMGNewViewController.h */,
+				856272C51D22B10500630FB5 /* XMGNewViewController.m */,
+				856272C71D22B17E00630FB5 /* XMGFriendTrendsViewController.h */,
+				856272C81D22B17E00630FB5 /* XMGFriendTrendsViewController.m */,
+				856272CA1D22B19100630FB5 /* XMGMeViewController.h */,
+				856272CB1D22B19100630FB5 /* XMGMeViewController.m */,
 				85C7DD8A1D1FAF95007D1751 /* Supporting Files */,
 			);
 			path = "百思不得姐";
@@ -147,8 +179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85EE0BED1D240356006AA28A /* XMGTabBar.m in Sources */,
+				85EE0BF01D240371006AA28A /* UIView+XMGExtension.m in Sources */,
 				85FFDE811D21712900DC9544 /* XMGTabBarController.m in Sources */,
+				856272C61D22B10500630FB5 /* XMGNewViewController.m in Sources */,
 				85C7DD8F1D1FAF95007D1751 /* AppDelegate.m in Sources */,
+				856272C91D22B17E00630FB5 /* XMGFriendTrendsViewController.m in Sources */,
+				856272C31D22B09D00630FB5 /* XMGEssenceViewController.m in Sources */,
+				856272CC1D22B19100630FB5 /* XMGMeViewController.m in Sources */,
 				85C7DD8C1D1FAF95007D1751 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiandougang.-----";
@@ -266,6 +305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PREFIX_HEADER = "百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jiandougang.-----";

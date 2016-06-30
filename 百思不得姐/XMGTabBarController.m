@@ -7,6 +7,11 @@
 //
 
 #import "XMGTabBarController.h"
+#import "XMGEssenceViewController.h"
+#import "XMGNewViewController.h"
+#import "XMGFriendTrendsViewController.h"
+#import "XMGMeViewController.h"
+#import "XMGTabBar.h"
 
 @interface XMGTabBarController ()
 
@@ -32,36 +37,34 @@
     [item setTitleTextAttributes:selectAttrs forState:UIControlStateSelected];
     
     //添加子控件器
-    UIViewController *vc01 = [[UIViewController alloc] init];
-    vc01.tabBarItem.title = @"精华";
-    vc01.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
-    vc01.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_essence_click_icon"];
+    [self setUpChildVc:[[XMGEssenceViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
     
-    vc01.view.backgroundColor = [UIColor blueColor];
-    [self addChildViewController:vc01];
+    [self setUpChildVc:[[XMGNewViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     
-    UIViewController *vc02 = [[UIViewController alloc] init];
-    vc02.view.backgroundColor = [UIColor grayColor];
-    vc02.tabBarItem.title = @"新帖";
-    vc02.tabBarItem.image = [UIImage imageNamed:@"tabBar_new_icon"];
-    vc02.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_new_click_icon"];
-    [self addChildViewController:vc02];
+    [self setUpChildVc:[[XMGFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
-    UIViewController *vc03 = [[UIViewController alloc] init];
-    vc03.view.backgroundColor = [UIColor greenColor];
-    vc03.tabBarItem.title = @"关注";
-    vc03.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    vc03.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_friendTrends_click_icon"];
-    [self addChildViewController:vc03];
+    [self setUpChildVc:[[XMGMeViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
     
-    UIViewController *vc04 = [[UIViewController alloc] init];
-    vc04.view.backgroundColor = [UIColor redColor];
-    vc04.tabBarItem.title = @"我";
-    vc04.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    vc04.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_click_icon"];
-    
-    [self addChildViewController:vc04];
+    //更换tabBar
+    [self setValue:[[XMGTabBar alloc] init] forKey:@"tabBar"];
 }
 
+/**
+ *  初始化字控制器
+ *
+ *  @param title         标题
+ *  @param image         常态图片
+ *  @param selectedImage 选中图片
+ */
+- (void)setUpChildVc:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
+    vc.navigationItem.title = title;
+    vc.tabBarItem.title = title;
+    vc.tabBarItem.image = [UIImage imageNamed:image];
+    vc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(100) / 100.0 green:arc4random_uniform(100) / 100.0 blue:arc4random_uniform(100) / 100.0 alpha:1.0];
+    //包装一个导航控制器，添加导航控制器为tabbarcontroller的子控制器
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self addChildViewController:nav];
+}
 
 @end
