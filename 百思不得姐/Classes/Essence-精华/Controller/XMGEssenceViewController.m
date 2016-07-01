@@ -21,13 +21,13 @@
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
 
     //设置导航栏左边的按钮
-    UIButton *tagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tagButton setBackgroundImage:[UIImage imageNamed:@"MainTagSubIcon"] forState:UIControlStateNormal];
-    [tagButton setBackgroundImage:[UIImage imageNamed:@"MainTagSubIconClick"] forState:UIControlStateHighlighted];
-    tagButton.size = tagButton.currentBackgroundImage.size;
-    [tagButton addTarget:self action:@selector(tagClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tagButton];
-}
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick-click" target:self action:@selector(tagClick)];
+
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"mainCellDing" highImage:@"mainCellDingClick" target:nil action:nil];
+    
+    //设置背景色
+    self.view.backgroundColor = XMGGlobalBg;
+};
 
 - (void)tagClick {
     XMGLog(@"%s",__func__);
