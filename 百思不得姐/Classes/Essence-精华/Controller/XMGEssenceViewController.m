@@ -27,10 +27,18 @@
     
     //设置背景色
     self.view.backgroundColor = XMGGlobalBg;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStyleDone) target:nil action:nil];
 };
 
 - (void)tagClick {
     XMGLog(@"%s",__func__);
 }
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = XMGRGBCorlor(200, 100, 50);
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

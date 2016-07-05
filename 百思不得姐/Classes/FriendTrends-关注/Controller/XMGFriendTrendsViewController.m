@@ -25,6 +25,7 @@
 
     //设置背景色
     self.view.backgroundColor = XMGGlobalBg;
+    
 }
 
 - (void)friendsClick {
