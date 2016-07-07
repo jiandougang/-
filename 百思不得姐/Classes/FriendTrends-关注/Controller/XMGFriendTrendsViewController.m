@@ -7,6 +7,7 @@
 //
 
 #import "XMGFriendTrendsViewController.h"
+#import "XMGRecommendViewController.h"
 
 @interface XMGFriendTrendsViewController ()
 
@@ -29,8 +30,9 @@
 }
 
 - (void)friendsClick {
-    XMGLogFunc;
- }
+    XMGRecommendViewController *vc = [[XMGRecommendViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 
