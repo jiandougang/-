@@ -22,15 +22,15 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xz-4q-OgX">
-                        <rect key="frame" x="70" y="29" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="70" y="29" width="180" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JU-jY-oc7">
                         <rect key="frame" x="70" y="62" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4x-F0-hDU">
@@ -48,7 +48,7 @@
                         </state>
                     </button>
                     <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNX-NM-uOf" userLabel="分割线">
-                        <rect key="frame" x="0.0" y="106.5" width="330" height="1"/>
+                        <rect key="frame" x="0.0" y="106" width="330" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="ThC-e4-05N"/>
@@ -60,6 +60,7 @@
                     <constraint firstItem="Q4x-F0-hDU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3Iz-XR-x6k"/>
                     <constraint firstItem="6JU-jY-oc7" firstAttribute="bottom" secondItem="XpG-SB-PKk" secondAttribute="bottom" id="AR2-bP-GSm"/>
                     <constraint firstAttribute="trailing" secondItem="Q4x-F0-hDU" secondAttribute="trailing" constant="20" id="HSL-JT-zUW"/>
+                    <constraint firstItem="Q4x-F0-hDU" firstAttribute="leading" secondItem="3Xz-4q-OgX" secondAttribute="trailing" constant="10" id="J37-JI-DnN"/>
                     <constraint firstItem="XpG-SB-PKk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Jza-ib-OAE"/>
                     <constraint firstAttribute="trailing" secondItem="rNX-NM-uOf" secondAttribute="trailing" id="QLA-p2-RBd"/>
                     <constraint firstItem="XpG-SB-PKk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ZVf-My-bqv"/>
