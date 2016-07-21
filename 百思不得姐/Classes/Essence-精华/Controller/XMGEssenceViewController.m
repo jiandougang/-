@@ -7,6 +7,7 @@
 //
 
 #import "XMGEssenceViewController.h"
+#import "XMGRecommendTagsViewController.h"
 
 @interface XMGEssenceViewController ()
 
@@ -23,22 +24,13 @@
     //设置导航栏左边的按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick-click" target:self action:@selector(tagClick)];
 
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImage:@"mainCellDing" highImage:@"mainCellDingClick" target:nil action:nil];
-    
     //设置背景色
     self.view.backgroundColor = XMGGlobalBg;
-    
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:(UIBarButtonItemStyleDone) target:nil action:nil];
 };
 
 - (void)tagClick {
-    XMGLog(@"%s",__func__);
-}
-
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = XMGRGBCorlor(200, 100, 50);
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    XMGRecommendTagsViewController *tags = [[XMGRecommendTagsViewController alloc] init];
+    [self.navigationController pushViewController:tags animated:YES];
 }
 @end

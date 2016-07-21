@@ -93,8 +93,8 @@ static NSString* const XMGUserId = @"user";
         //让用户表格进入下拉刷新状态
         [self.userTableView.header beginRefreshing];
         
-//        //隐藏指示器
-//        [SVProgressHUD dismiss];
+        //隐藏指示器
+        [SVProgressHUD dismiss];
     }
               failure:^(NSURLSessionDataTask* _Nullable task, NSError* _Nonnull error) {
                   
