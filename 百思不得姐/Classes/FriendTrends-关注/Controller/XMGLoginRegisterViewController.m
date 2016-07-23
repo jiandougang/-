@@ -9,14 +9,23 @@
 #import "XMGLoginRegisterViewController.h"
 
 @interface XMGLoginRegisterViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *phoneField;
 
 @end
 
 @implementation XMGLoginRegisterViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+//    //文字属性
+//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+//    attrs[NSForegroundColorAttributeName] = [UIColor redColor];
+//    
+//    //NSAttrbutedString : 带有属性的文字（富文本技术）
+//    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"手机号123" attributes:attrs];
+//    self.phoneField.attributedPlaceholder = placeholder;
 }
 
 - (void)didReceiveMemoryWarning {
