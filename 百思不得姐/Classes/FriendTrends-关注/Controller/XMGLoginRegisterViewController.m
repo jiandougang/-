@@ -10,10 +10,15 @@
 
 @interface XMGLoginRegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginViewLeftMargin;
 
 @end
 
 @implementation XMGLoginRegisterViewController
+
+- (IBAction)back {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 - (void)viewDidLoad {
@@ -26,6 +31,26 @@
 //    //NSAttrbutedString : 带有属性的文字（富文本技术）
 //    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"手机号123" attributes:attrs];
 //    self.phoneField.attributedPlaceholder = placeholder;
+}
+- (IBAction)showLoginOrRegister:(UIButton *)button {
+    //退出键盘
+    [self.view endEditing:YES];
+    
+    if (self.loginViewLeftMargin.constant == 0) {//显示注册界面
+        self.loginViewLeftMargin.constant = -self.view.width;
+        button.selected = YES;
+//        [button setTitle:@"已有帐号" forState:UIControlStateNormal];
+    }else {//显示登录界面
+        self.loginViewLeftMargin.constant = 0;
+//        [button setTitle:@"注册帐号" forState:UIControlStateNormal];
+        button.selected = NO;
+
+    }
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
