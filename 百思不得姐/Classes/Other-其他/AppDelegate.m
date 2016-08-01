@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XMGTabBarController.h"
+#import "XMGPushGuideView.h"
 
 @interface AppDelegate ()
 
@@ -26,13 +27,16 @@
     
     //设置窗口的根控件器
     XMGTabBarController *tabBarController = [[XMGTabBarController alloc] init];
- 
-   
     
     self.window.rootViewController = tabBarController;
-    
+
     //显示窗口
     [self.window makeKeyAndVisible];
+    
+    //显示推送引导
+    [XMGPushGuideView show];
+    
+ 
     return YES;
 }
 
