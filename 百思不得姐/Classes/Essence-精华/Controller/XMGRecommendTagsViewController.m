@@ -32,6 +32,7 @@ static NSString *const XMGTagsId = @"tag";
     [self loadTags];
 }
 
+
 - (void)loadTags {
     //发送请求
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
