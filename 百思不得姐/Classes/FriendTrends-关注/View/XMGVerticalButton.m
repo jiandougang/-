@@ -16,7 +16,7 @@
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [self initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         [self setUp];
     }
     return self;

@@ -1,12 +1,12 @@
 //
-//  XMGWordViewController.m
+//  XMGTopicViewController.m
 //  百思不得姐
 //
 //  Created by 吴国洪 on 16/7/30.
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
-#import "XMGWordViewController.h"
+#import "XMGTopicViewController.h"
 #import "AFNetworking.h"
 #import "XMGTopic.h"
 #import "XMGTopicCell.h"
@@ -14,7 +14,7 @@
 #import <MJExtension.h>
 #import <MJRefresh.h>
 
-@interface XMGWordViewController ()
+@interface XMGTopicViewController ()
 /**
  *  贴子数据
  */
@@ -31,7 +31,7 @@
 @property (nonatomic, strong) NSDictionary *params;
 @end
 
-@implementation XMGWordViewController
+@implementation XMGTopicViewController
 
 - (NSMutableArray *)topics {
     if (!_topics) {
@@ -40,6 +40,7 @@
     
     return _topics;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,7 +51,7 @@
     //添加刷新控件
     [self setupRefresh];
     
-   
+    
 }
 
 static NSString * const XMGTopicCellId = @"topic";
@@ -90,19 +91,19 @@ static NSString * const XMGTopicCellId = @"topic";
 - (void)loadNewTopic {
     //结束上拉
     [self.tableView.footer endRefreshing];
- 
+    
     //参数
     NSMutableDictionary *parms = [NSMutableDictionary dictionary];
     parms[@"a"] = @"list";
     parms[@"c"] = @"data";
-    parms[@"type"] = @"29";
+    parms[@"type"] = @(self.type);
     self.params = parms;
-
+    
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:parms success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (self.params != _params) {
             return ;
         }
-        
+                
         //存储maxtime
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
@@ -111,19 +112,19 @@ static NSString * const XMGTopicCellId = @"topic";
         //刷新表格
         [self.tableView reloadData];
         
+//        XMGLog(@"%@",responseObject);
         //结束刷新
         [self.tableView.header endRefreshing];
         
         //页码
         self.page = 0;
-        XMGLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (self.params != _params) {
             return ;
         }
         //结束刷新
         [self.tableView.header endRefreshing];
-
+        
         
     }];
 }
@@ -140,7 +141,7 @@ static NSString * const XMGTopicCellId = @"topic";
     NSMutableDictionary *parms = [NSMutableDictionary dictionary];
     parms[@"a"] = @"list";
     parms[@"c"] = @"data";
-    parms[@"type"] = @"29";
+    parms[@"type"] = @(self.type);
     NSInteger page = self.page + 1;
     parms[@"page"] = @(page);
     parms[@"maxtime"] = self.maxtime;
@@ -153,7 +154,7 @@ static NSString * const XMGTopicCellId = @"topic";
         
         //存储maxtime
         self.maxtime = responseObject[@"info"][@"maxtime"];
-
+        
         //字典 ->模型
         NSArray *newTopics = [XMGTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.topics addObjectsFromArray:newTopics];
@@ -163,7 +164,6 @@ static NSString * const XMGTopicCellId = @"topic";
         
         //结束刷新
         [self.tableView.footer endRefreshing];
-        XMGLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (self.params != _params) {
             return ;
@@ -182,7 +182,7 @@ static NSString * const XMGTopicCellId = @"topic";
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     self.tableView.footer.hidden = self.topics.count == 0;
     return self.topics.count;
 }
@@ -193,61 +193,26 @@ static NSString * const XMGTopicCellId = @"topic";
     XMGTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:XMGTopicCellId];
     
     XMGTopic *topic = self.topics[indexPath.row];
+//    XMGLog(@"%@",topic.image0);
+
     [cell setTopic:topic];
-//    cell.textLabel.text = topic.name;
-//    cell.detailTextLabel.text = topic.text;
-//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    //    cell.textLabel.text = topic.name;
+    //    cell.detailTextLabel.text = topic.text;
+    //    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200; 
+    //取出帖子模型
+    XMGTopic *topic = self.topics[indexPath.row];
+    
+  
+    //返回这个模型对应的高度
+    return topic.cellHeight;
 }
 
 //13825563483
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

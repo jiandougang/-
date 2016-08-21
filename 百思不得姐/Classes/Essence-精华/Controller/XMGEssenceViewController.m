@@ -8,11 +8,7 @@
 
 #import "XMGEssenceViewController.h"
 #import "XMGRecommendTagsViewController.h"
-#import "XMGAllViewController.h"
-#import "XMGVideoViewController.h"
-#import "XMGVoiceViewController.h"
-#import "XMGPictureViewController.h"
-#import "XMGWordViewController.h"
+#import "XMGTopicViewController.h"
 
 @interface XMGEssenceViewController ()<UIScrollViewDelegate>
 
@@ -59,24 +55,30 @@
  */
 - (void)setupChildVces {
     
-    XMGWordViewController *word = [[XMGWordViewController alloc] init];
+    XMGTopicViewController *word = [[XMGTopicViewController alloc] init];
     word.title = @"段子";
+    word.type = XMGTopicTypeWord;
     [self addChildViewController:word];
     
-    XMGAllViewController * all = [[XMGAllViewController alloc] init];
+    XMGTopicViewController * all = [[XMGTopicViewController alloc] init];
     [self addChildViewController:all];
     all.title = @"全部";
+    all.type = XMGTopicTypeAll;
 
-    XMGVideoViewController *video = [[XMGVideoViewController alloc] init];
+    XMGTopicViewController *video = [[XMGTopicViewController alloc] init];
     [self addChildViewController:video];
     video.title = @"视频";
+    video.type = XMGTopicTypeVideo;
 
-    XMGVoiceViewController *voice = [[XMGVoiceViewController alloc] init];
+    XMGTopicViewController *voice = [[XMGTopicViewController alloc] init];
     [self addChildViewController:voice];
     voice.title = @"声音";
+    voice.type = XMGTopicTypeVoice;
 
-    XMGPictureViewController *picture = [[XMGPictureViewController alloc] init];
+    XMGTopicViewController *picture = [[XMGTopicViewController alloc] init];
     picture.title = @"图片";
+    picture.type = XMGTopicTypePicture;
+
     [self addChildViewController:picture];
     
 

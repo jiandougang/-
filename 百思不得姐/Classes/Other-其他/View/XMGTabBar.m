@@ -7,6 +7,7 @@
 //
 
 #import "XMGTabBar.h"
+#import "XMGPublishViewController.h"
 
 @interface XMGTabBar()
 
@@ -19,7 +20,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
-    if (self == [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         //设置tabbar的背景图片
         [self setBackgroundImage:[UIImage imageNamed:@"tabbar-light"]];
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -27,11 +28,17 @@
         //添加发布按钮
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+        [publishButton addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
         publishButton.size = publishButton.currentBackgroundImage.size;
         [self addSubview:publishButton];
         self.publishButton = publishButton;
     }
     return self;
+}
+
+- (void)publishClick{
+    XMGPublishViewController *publish = [[XMGPublishViewController alloc] init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:publish animated:NO completion:nil];
 }
 
  - (void)layoutSubviews {
