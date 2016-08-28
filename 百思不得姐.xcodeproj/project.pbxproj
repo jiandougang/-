@@ -35,8 +35,8 @@
 		858577C21D30A982001BD2EB /* XMGRecommendCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 858577C11D30A982001BD2EB /* XMGRecommendCategory.m */; };
 		858577C61D30D8F1001BD2EB /* XMGRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 858577C41D30D8F1001BD2EB /* XMGRecommendCategoryCell.m */; };
 		858577C71D30D8F1001BD2EB /* XMGRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858577C51D30D8F1001BD2EB /* XMGRecommendCategoryCell.xib */; };
-		85996E521D65FB400047D9AE /* XMGPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85996E501D65FB400047D9AE /* XMGPublishViewController.m */; };
-		85996E531D65FB400047D9AE /* XMGPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85996E511D65FB400047D9AE /* XMGPublishViewController.xib */; };
+		85996E521D65FB400047D9AE /* XMGPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85996E501D65FB400047D9AE /* XMGPublishView.m */; };
+		85996E531D65FB400047D9AE /* XMGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85996E511D65FB400047D9AE /* XMGPublishView.xib */; };
 		85A7D19C1D561D5E00A7AFF5 /* NSDate+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A7D19B1D561D5E00A7AFF5 /* NSDate+XMGExtension.m */; };
 		85C42E3E1D3271BA00B28A98 /* XMGRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C42E3C1D3271BA00B28A98 /* XMGRecommendUserCell.m */; };
 		85C42E3F1D3271BA00B28A98 /* XMGRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85C42E3D1D3271BA00B28A98 /* XMGRecommendUserCell.xib */; };
@@ -108,9 +108,9 @@
 		858577C31D30D8F1001BD2EB /* XMGRecommendCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendCategoryCell.h; sourceTree = "<group>"; };
 		858577C41D30D8F1001BD2EB /* XMGRecommendCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRecommendCategoryCell.m; sourceTree = "<group>"; };
 		858577C51D30D8F1001BD2EB /* XMGRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGRecommendCategoryCell.xib; sourceTree = "<group>"; };
-		85996E4F1D65FB400047D9AE /* XMGPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPublishViewController.h; sourceTree = "<group>"; };
-		85996E501D65FB400047D9AE /* XMGPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPublishViewController.m; sourceTree = "<group>"; };
-		85996E511D65FB400047D9AE /* XMGPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPublishViewController.xib; sourceTree = "<group>"; };
+		85996E4F1D65FB400047D9AE /* XMGPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPublishView.h; sourceTree = "<group>"; };
+		85996E501D65FB400047D9AE /* XMGPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPublishView.m; sourceTree = "<group>"; };
+		85996E511D65FB400047D9AE /* XMGPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPublishView.xib; sourceTree = "<group>"; };
 		85A7D19A1D561D5E00A7AFF5 /* NSDate+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XMGExtension.h"; sourceTree = "<group>"; };
 		85A7D19B1D561D5E00A7AFF5 /* NSDate+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XMGExtension.m"; sourceTree = "<group>"; };
 		85C42E3B1D3271BA00B28A98 /* XMGRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRecommendUserCell.h; sourceTree = "<group>"; };
@@ -379,9 +379,9 @@
 				8564932B1D2575B100B220CF /* XMGTabBarController.m */,
 				85D802311D27C2CE00E5CBC6 /* XMGNavigationController.h */,
 				85D802321D27C2CE00E5CBC6 /* XMGNavigationController.m */,
-				85996E4F1D65FB400047D9AE /* XMGPublishViewController.h */,
-				85996E501D65FB400047D9AE /* XMGPublishViewController.m */,
-				85996E511D65FB400047D9AE /* XMGPublishViewController.xib */,
+				85996E4F1D65FB400047D9AE /* XMGPublishView.h */,
+				85996E501D65FB400047D9AE /* XMGPublishView.m */,
+				85996E511D65FB400047D9AE /* XMGPublishView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -518,7 +518,7 @@
 				85637B521D60BD2400BE5184 /* XMGShowPictureViewController.xib in Resources */,
 				8571D56A1D2EA24B0071CCDD /* XMGRecommendViewController.xib in Resources */,
 				8505396D1D5B5C6100730951 /* XMGTopicCell.xib in Resources */,
-				85996E531D65FB400047D9AE /* XMGPublishViewController.xib in Resources */,
+				85996E531D65FB400047D9AE /* XMGPublishView.xib in Resources */,
 				858577C71D30D8F1001BD2EB /* XMGRecommendCategoryCell.xib in Resources */,
 				85C7DD971D1FAF95007D1751 /* Assets.xcassets in Resources */,
 				85E7BCD21D3FDA6A0028A75E /* XMGLoginRegisterViewController.xib in Resources */,
@@ -614,7 +614,7 @@
 				856493321D2575B100B220CF /* XMGFriendTrendsViewController.m in Sources */,
 				856493351D2575B100B220CF /* AppDelegate.m in Sources */,
 				8571D56C1D2EAD520071CCDD /* Foundation+Log.m in Sources */,
-				85996E521D65FB400047D9AE /* XMGPublishViewController.m in Sources */,
+				85996E521D65FB400047D9AE /* XMGPublishView.m in Sources */,
 				856493391D2575B100B220CF /* main.m in Sources */,
 				856493361D2575B100B220CF /* UIBarButtonItem+XMGExtension.m in Sources */,
 			);
