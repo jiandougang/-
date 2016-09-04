@@ -60,6 +60,13 @@
     word.type = XMGTopicTypeWord;
     [self addChildViewController:word];
     
+    XMGTopicViewController *voice = [[XMGTopicViewController alloc] init];
+    [self addChildViewController:voice];
+    voice.title = @"声音";
+    voice.type = XMGTopicTypeVoice;
+    
+
+    
     XMGTopicViewController * all = [[XMGTopicViewController alloc] init];
     [self addChildViewController:all];
     all.title = @"全部";
@@ -69,11 +76,8 @@
     [self addChildViewController:video];
     video.title = @"视频";
     video.type = XMGTopicTypeVideo;
+    
 
-    XMGTopicViewController *voice = [[XMGTopicViewController alloc] init];
-    [self addChildViewController:voice];
-    voice.title = @"声音";
-    voice.type = XMGTopicTypeVoice;
 
     XMGTopicViewController *picture = [[XMGTopicViewController alloc] init];
     picture.title = @"图片";

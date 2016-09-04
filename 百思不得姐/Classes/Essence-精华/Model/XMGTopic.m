@@ -8,12 +8,13 @@
 
 #import "XMGTopic.h"
 #import "XMGConst.h"
+#import "XMGComment.h"
+#import "XMGUser.h"
 #import <MJExtension.h>
 
 @implementation XMGTopic {
     
     CGFloat _cellHeight;
-    CGRect _pictureViewFrame;
 }
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName {
@@ -22,6 +23,10 @@
              @"large_image" : @"image1",
              @"middle_image" : @"image2"
              };
+}
+
++ (NSDictionary *)mj_objectClassInArray {
+    return @{@"top_cmt" : @"XMGComment"};
 }
 
 - (NSString *)create_time {
@@ -94,6 +99,32 @@
             _pictureFrame = CGRectMake(pictureX, pictureY, pictureW, pictureH);
             
             _cellHeight += pictureH + XMGTopicCellMargin;
+        }else if(self.type == XMGTopicTypeVoice){
+            CGFloat voiceX = XMGTopicCellMargin;
+            CGFloat voiceY = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+            CGFloat voiceW = maxSize.width;
+            CGFloat voiceH = voiceW * self.height / self.width;
+            _voiceFrame = CGRectMake(voiceX, voiceY, voiceW, voiceH);
+            
+            _cellHeight += voiceH + XMGTopicCellMargin;
+                        
+        }else if(self.type == XMGTopicTypeVideo){
+            CGFloat videoX = XMGTopicCellMargin;
+            CGFloat videoY = XMGTopicCellTextY + textH + XMGTopicCellMargin;
+            CGFloat videoW = maxSize.width;
+            CGFloat videoH = videoW * self.height / self.width;
+            _videoFrame = CGRectMake(videoX, videoY, videoW, videoH);
+            
+            _cellHeight += videoH + XMGTopicCellMargin;
+        }
+        
+        XMGComment *cmt = [self.top_cmt firstObject];
+        
+        if (cmt) {
+            
+            NSString *content = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+            CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:13]} context:nil].size.height;
+            _cellHeight += XMGTopicCellTopCmtTitleH + contentH + XMGTopicCellMargin;
         }
         
         //底部工具条的高度

@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "XMGTopic.h"
 #import "XMGTopicCell.h"
+#import "XMGCommentViewController.h"
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
@@ -109,6 +110,8 @@ static NSString * const XMGTopicCellId = @"topic";
         
         //字典 ->模型
         self.topics = [XMGTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        
         //刷新表格
         [self.tableView reloadData];
         
@@ -210,6 +213,11 @@ static NSString * const XMGTopicCellId = @"topic";
   
     //返回这个模型对应的高度
     return topic.cellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    XMGCommentViewController *commentVc = [[XMGCommentViewController alloc] init];
+    [self.navigationController pushViewController:commentVc animated:YES];
 }
 
 //13825563483
