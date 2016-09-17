@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class XMGComment;
+
 @interface XMGTopic : NSObject
+/**
+ *  id
+ */
+@property (nonatomic, copy) NSString *ID;
 /**
  *  名称
  */
@@ -76,9 +82,11 @@
  */
 @property (nonatomic, assign) NSInteger playcount;
 /**
- *  最热评论(期望这个数组中存放的是XMGComment模型)
+ *  最热评论
  */
-@property (nonatomic, strong) NSArray *top_cmt;
+@property (nonatomic, strong) XMGComment *top_cmt;
+
+@property (nonatomic, copy) NSString *ctime;
 
 /*****************额外的辅助属性************************/
 /**

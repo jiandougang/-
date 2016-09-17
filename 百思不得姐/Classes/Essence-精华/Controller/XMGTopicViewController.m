@@ -217,6 +217,7 @@ static NSString * const XMGTopicCellId = @"topic";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     XMGCommentViewController *commentVc = [[XMGCommentViewController alloc] init];
+    commentVc.topic = self.topics[indexPath.row];
     [self.navigationController pushViewController:commentVc animated:YES];
 }
 

@@ -10,11 +10,16 @@
 
 @class XMGUser;
 @interface XMGComment : NSObject
-
+/**
+ *  id
+ */
+@property (nonatomic, copy) NSString *ID;
 /**
  *  音频文件的时长
  */
 @property (nonatomic, assign) NSInteger voicetime;
+
+@property (nonatomic, copy) NSString *voiceuri;
 /**
  *  评论的文字内容
  */

@@ -17,21 +17,16 @@
 @implementation XMGLoginRegisterViewController
 
 - (IBAction)back {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-//    //文字属性
-//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-//    attrs[NSForegroundColorAttributeName] = [UIColor redColor];
-//    
-//    //NSAttrbutedString : 带有属性的文字（富文本技术）
-//    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:@"手机号123" attributes:attrs];
-//    self.phoneField.attributedPlaceholder = placeholder;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
+
 - (IBAction)showLoginOrRegister:(UIButton *)button {
     //退出键盘
     [self.view endEditing:YES];
@@ -53,13 +48,5 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
 
 @end

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="comment" rowHeight="78" id="KGk-i7-Jjw" customClass="XMGCommentCell">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="77.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FWa-Me-gPt" userLabel="头像">
+                        <rect key="frame" x="10" y="10" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="STU-ln-Kb3"/>
+                            <constraint firstAttribute="height" constant="35" id="YEe-RB-aSA"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_manIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Lir-nv-hDL" userLabel="性别">
+                        <rect key="frame" x="45" y="10" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="3mg-6d-7Hb"/>
+                            <constraint firstAttribute="height" constant="20" id="Nl6-bA-zRG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GZ-w1-cRv" userLabel="用户名">
+                        <rect key="frame" x="75" y="10" width="42" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GD3-Ln-Bp8" userLabel="评论内容">
+                        <rect key="frame" x="55" y="40" width="229" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pu-8u-kXJ" userLabel="点赞按钮">
+                        <rect key="frame" x="294" y="10" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="5xF-WO-TPI"/>
+                            <constraint firstAttribute="width" constant="30" id="849-H9-TnQ"/>
+                        </constraints>
+                        <state key="normal" image="commentLikeButton"/>
+                        <state key="highlighted" image="commentLikeButtonClick"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otg-VL-Qih" userLabel="点赞数量">
+                        <rect key="frame" x="284" y="50" width="40" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="9Xk-Vk-qsf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pH-I7-pBL" userLabel="音频按钮">
+                        <rect key="frame" x="55" y="40" width="62" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="TbG-l6-MOg"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="XgZ-jM-cOr"/>
+                            <constraint firstAttribute="height" constant="22" id="zO7-Lb-jTV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="12*" image="play-voice-stop" backgroundImage="play-voice-bg">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" title="12*" backgroundImage="play-voice-bg-select">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Otg-VL-Qih" firstAttribute="leading" secondItem="GD3-Ln-Bp8" secondAttribute="trailing" id="1LU-LU-My7"/>
+                    <constraint firstItem="GD3-Ln-Bp8" firstAttribute="leading" secondItem="FWa-Me-gPt" secondAttribute="trailing" constant="10" id="6Mm-8u-wYx"/>
+                    <constraint firstItem="0pH-I7-pBL" firstAttribute="leading" secondItem="GD3-Ln-Bp8" secondAttribute="leading" id="6Zr-79-7xt"/>
+                    <constraint firstItem="FWa-Me-gPt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7u2-h4-PyH"/>
+                    <constraint firstItem="Lir-nv-hDL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9nG-Yl-7RJ"/>
+                    <constraint firstItem="8Pu-8u-kXJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="CPy-ks-Vjy"/>
+                    <constraint firstItem="GD3-Ln-Bp8" firstAttribute="top" secondItem="7GZ-w1-cRv" secondAttribute="bottom" constant="10" id="ERO-Gk-7b9"/>
+                    <constraint firstAttribute="trailing" secondItem="8Pu-8u-kXJ" secondAttribute="trailing" constant="10" id="WZV-kV-EcE"/>
+                    <constraint firstItem="7GZ-w1-cRv" firstAttribute="leading" secondItem="Lir-nv-hDL" secondAttribute="trailing" id="XOX-t4-S30"/>
+                    <constraint firstItem="0pH-I7-pBL" firstAttribute="top" secondItem="GD3-Ln-Bp8" secondAttribute="top" id="ZLJ-nO-mUH"/>
+                    <constraint firstItem="Otg-VL-Qih" firstAttribute="top" secondItem="8Pu-8u-kXJ" secondAttribute="bottom" constant="10" id="aQP-xD-YZn"/>
+                    <constraint firstItem="7GZ-w1-cRv" firstAttribute="top" secondItem="Lir-nv-hDL" secondAttribute="top" id="dPM-Eu-OK6"/>
+                    <constraint firstItem="Lir-nv-hDL" firstAttribute="top" secondItem="FWa-Me-gPt" secondAttribute="top" id="ht4-9v-4Tw"/>
+                    <constraint firstItem="Otg-VL-Qih" firstAttribute="trailing" secondItem="8Pu-8u-kXJ" secondAttribute="trailing" id="j7n-f2-Ng7"/>
+                    <constraint firstItem="Lir-nv-hDL" firstAttribute="leading" secondItem="FWa-Me-gPt" secondAttribute="trailing" id="kIL-HM-m3m"/>
+                    <constraint firstItem="GD3-Ln-Bp8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="lK0-zx-yab"/>
+                    <constraint firstAttribute="bottom" secondItem="GD3-Ln-Bp8" secondAttribute="bottom" constant="16.5" id="nGS-tv-r6O"/>
+                    <constraint firstItem="7GZ-w1-cRv" firstAttribute="bottom" secondItem="Lir-nv-hDL" secondAttribute="bottom" id="sQC-Di-xEG"/>
+                    <constraint firstItem="FWa-Me-gPt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="x6c-ub-shS"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ht4-9v-4Tw"/>
+                        <exclude reference="lK0-zx-yab"/>
+                        <exclude reference="sQC-Di-xEG"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="GD3-Ln-Bp8" id="XMj-Oj-NeK"/>
+                <outlet property="likeCountLabel" destination="Otg-VL-Qih" id="hoc-7M-YdZ"/>
+                <outlet property="profileImageView" destination="FWa-Me-gPt" id="xEw-rk-ami"/>
+                <outlet property="sexView" destination="Lir-nv-hDL" id="EX5-q7-6Bs"/>
+                <outlet property="userNameLabel" destination="7GZ-w1-cRv" id="qTn-SC-goH"/>
+                <outlet property="voiceButton" destination="0pH-I7-pBL" id="HU3-K1-FGZ"/>
+            </connections>
+            <point key="canvasLocation" x="253" y="283"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Profile_manIcon" width="13" height="13"/>
+        <image name="commentLikeButton" width="18" height="18"/>
+        <image name="commentLikeButtonClick" width="19" height="19"/>
+        <image name="play-voice-bg" width="62" height="22"/>
+        <image name="play-voice-bg-select" width="74" height="24"/>
+        <image name="play-voice-stop" width="12" height="12"/>
+    </resources>
+</document>

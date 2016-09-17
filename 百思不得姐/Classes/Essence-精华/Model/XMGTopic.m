@@ -21,12 +21,11 @@
     return @{
              @"small_image" : @"image0",
              @"large_image" : @"image1",
-             @"middle_image" : @"image2"
+             @"middle_image" : @"image2",
+             @"ID" : @"id",
+             @"top_cmt" : @"top_cmt[0]",
+             @"ctime" : @"top_cmt[0].ctime"
              };
-}
-
-+ (NSDictionary *)mj_objectClassInArray {
-    return @{@"top_cmt" : @"XMGComment"};
 }
 
 - (NSString *)create_time {
@@ -118,11 +117,11 @@
             _cellHeight += videoH + XMGTopicCellMargin;
         }
         
-        XMGComment *cmt = [self.top_cmt firstObject];
         
-        if (cmt) {
+        
+        if (self.top_cmt) {
             
-            NSString *content = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+            NSString *content = [NSString stringWithFormat:@"%@ : %@", self.top_cmt.user.username, self.top_cmt.content];
             CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:13]} context:nil].size.height;
             _cellHeight += XMGTopicCellTopCmtTitleH + contentH + XMGTopicCellMargin;
         }

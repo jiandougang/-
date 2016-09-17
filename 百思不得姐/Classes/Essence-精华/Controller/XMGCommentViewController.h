@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class XMGTopic;
 @interface XMGCommentViewController : UIViewController
 
+@property (nonatomic, strong) XMGTopic *topic;
 @end
