@@ -42,6 +42,8 @@ static NSString * const XMGCommentId = @"comment";
  *  管理者
  */
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
+
+
 @end
 
 @implementation XMGCommentViewController
@@ -64,7 +66,8 @@ static NSString * const XMGCommentId = @"comment";
     
 }
 
-- (void)setupRefresh {
+- (void)setupRefresh
+{
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
     [self.tableView.header beginRefreshing];
     
@@ -72,12 +75,15 @@ static NSString * const XMGCommentId = @"comment";
     self.tableView.footer.hidden = YES;
 }
 
-- (void)loadMoreComments {
-    //结束之前所有请求
+- (void)loadMoreComments
+{
+    // 结束之前的所有请求
     [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
-    //页码
-    NSInteger page = self.page;
-    //参数
+    
+    // 页码
+    NSInteger page = self.page + 1;
+    
+    // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"dataList";
     params[@"c"] = @"comment";
@@ -86,72 +92,79 @@ static NSString * const XMGCommentId = @"comment";
     XMGComment *cmt = [self.latestComments lastObject];
     params[@"lastcid"] = cmt.ID;
     
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-   
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {//说明没有评论数据
+            self.tableView.footer.hidden = YES;
+            return ;
+        }
         
-        //最新评论
+        // 最新评论
         NSArray *newComments = [XMGComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.latestComments addObjectsFromArray:newComments];
         
-        //页码
+        // self.latestComments = @[1, 3, 0, 9]
+        // newComments = @[2, 8]
+        //        [self.latestComments addObject:newComments];
+        // self.latestComments = @[1, 3, 0, 9, @[2, 8]]
+        
+        // 页码
         self.page = page;
         
-        //刷新数据
+        // 刷新数据
         [self.tableView reloadData];
-        //结束刷新状态
-        [self.tableView.header endRefreshing];
         
-        //控制footer的状态
+        // 控制footer的状态
         NSInteger total = [responseObject[@"total"] integerValue];
-        if(self.latestComments.count >= total){//全部加载完毕
+        if (self.latestComments.count >= total) { // 全部加载完毕
             self.tableView.footer.hidden = YES;
-            
+        } else {
+            // 结束刷新状态
+            [self.tableView.footer endRefreshing];
         }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self.tableView.header endRefreshing];
-        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.tableView.footer endRefreshing];
     }];
 }
 
-- (void)loadNewComments {
-    //结束之前所有请求
+
+- (void)loadNewComments
+{
+    // 结束之前的所有请求
     [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
-    //参数
+    // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"dataList";
     params[@"c"] = @"comment";
     params[@"data_id"] = self.topic.ID;
     params[@"hot"] = @"1";
-    
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //最热评论
+
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {//说明没有评论数据
+            [self.tableView.header endRefreshing];
+            return ;
+        }
+        
+        // 最热评论
         self.hotComments = [XMGComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
-        
-        //最新评论
+        // 最新评论
         self.latestComments = [XMGComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        
-        //页码
+
+        // 页码
         self.page = 1;
         
-        //刷新数据
+        // 刷新数据
         [self.tableView reloadData];
-       
-        
-        //控制footer的状态
-        NSInteger total = [responseObject[@"total"] integerValue];
-        if(self.latestComments.count >= total){//全部加载完毕
-            self.tableView.footer.hidden = YES;
-        
-        }else {
-            //结束刷新
-            [self.tableView.header endRefreshing];
-        }
-
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 结束刷新
         [self.tableView.header endRefreshing];
         
+        // 控制footer的状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latestComments.count >= total) { // 全部加载完毕
+            self.tableView.footer.hidden = YES;
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.tableView.header endRefreshing];
     }];
 }
 
@@ -171,7 +184,7 @@ static NSString * const XMGCommentId = @"comment";
     //添加cell
     XMGTopicCell *cell = [XMGTopicCell cell];
     cell.topic = self.topic;
-    cell.size = CGSizeMake(XMGScreenW, XMGScreenH);
+    cell.size = CGSizeMake(XMGScreenW, self.topic.cellHeight);
     [header addSubview:cell];
     
     //header 的高度
@@ -250,6 +263,9 @@ static NSString * const XMGCommentId = @"comment";
 #pragma mark - <UITableViewDelegate>
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
+    
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+
 }
 
 
@@ -295,23 +311,16 @@ static NSString * const XMGCommentId = @"comment";
 //}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    static NSString *ID = @"header";
-    //先从缓存池中找header
+    // 先从缓存池中找header
     XMGCommentHeaderView *header = [XMGCommentHeaderView headerViewWithTableView:tableView];
     
-    if (header == nil) {
-        header = [[XMGCommentHeaderView alloc] initWithReuseIdentifier:ID];
-        
-    }
-    
-    //设置label的数据
+    // 设置label的数据
     NSInteger hotCount = self.hotComments.count;
     if (section == 0) {
         header.title = hotCount ? @"最热评论" : @"最新评论";
-    }else {
-        header.title  = @"最新评论";
+    } else {
+        header.title = @"最新评论";
     }
-    
     return header;
 }
 
@@ -322,4 +331,46 @@ static NSString * const XMGCommentId = @"comment";
     return cell;
 }
 
+#pragma mark -MenuController处理
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    if (menu.isMenuVisible) {
+        [menu setMenuVisible:NO animated:YES];
+    } else {
+        // 被点击的cell
+        XMGCommentCell *cell = (XMGCommentCell *)[tableView cellForRowAtIndexPath:indexPath];
+        // 出现一个第一响应者
+        [cell becomeFirstResponder];
+        
+        // 显示MenuController
+        UIMenuItem *ding = [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)];
+        UIMenuItem *replay = [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(replay:)];
+        UIMenuItem *report = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(report:)];
+        menu.menuItems = @[ding, replay, report];
+        CGRect rect = CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5);
+        [menu setTargetRect:rect inView:cell];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+
+#pragma mark - MenuItem处理
+- (void)ding:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
+
+- (void)replay:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
+
+- (void)report:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
 @end

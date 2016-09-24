@@ -23,6 +23,14 @@
 
 @implementation XMGCommentCell
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    return NO;
+}
+
 - (void)awakeFromNib {
     UIImageView *bgView = [[UIImageView alloc] init];
     bgView.image = [UIImage imageNamed:@"mainCellBackground"];
@@ -31,8 +39,9 @@
 
 - (void)setComment:(XMGComment *)comment{
     _comment = comment;
-    
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.user.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+   
+    [self.profileImageView setHeader:comment.user.profile_image];
+     
     self.sexView.image = [comment.user.sex isEqualToString:XMGUserSexMale] ? [UIImage imageNamed:@"Profile_manIcon"] :[UIImage imageNamed:@"Profile_womanIcon"];
     self.contentLabel.text = comment.content;
     self.userNameLabel.text = comment.user.username;

@@ -11,6 +11,7 @@
 #import "XMGTopic.h"
 #import "XMGTopicCell.h"
 #import "XMGCommentViewController.h"
+#import "XMGNewViewController.h"
 #import <UIImageView+WebCache.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
@@ -24,12 +25,16 @@
  *  当前页码
  */
 @property (nonatomic, assign) NSInteger page;
+
+@property (nonatomic ,copy) NSString *maxtime;
 /**
  *  当加载下一页数据时需要这个参数
  */
-@property (nonatomic ,copy) NSString *maxtime;
-
 @property (nonatomic, strong) NSDictionary *params;
+/**
+ *  上次选中的索引(或者控制器)
+ */
+@property (nonatomic, assign) NSInteger lastSelectedIndex;
 @end
 
 @implementation XMGTopicViewController
@@ -69,6 +74,22 @@ static NSString * const XMGTopicCellId = @"topic";
     
     //注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XMGTopicCell class]) bundle:nil] forCellReuseIdentifier:XMGTopicCellId];
+    
+    //监听tabbar点击的通知
+    [XMGNoteCenter addObserver:self selector:@selector(tabBarSelect) name:XMGTabBarDidSelectNotification object:nil];
+}
+
+- (void)tabBarSelect {
+  
+    
+    //如果是连续选中2次，直接刷新
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex && self.tabBarController.selectedViewController == self.navigationController) {
+        [self.tableView.header beginRefreshing];
+    }
+    
+    //记录这一次选中的索引
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
+
 }
 
 /**
@@ -85,6 +106,11 @@ static NSString * const XMGTopicCellId = @"topic";
                              @selector(loadMoreTopics)];
 }
 
+#pragma mark -a 参数
+- (NSString *)a {
+    return [self.parentViewController isKindOfClass:[XMGNewViewController class]] ? @"newlist" : @"list";
+}
+
 #pragma mark -数据处理
 /**
  *  加载新的贴子数据
@@ -95,7 +121,7 @@ static NSString * const XMGTopicCellId = @"topic";
     
     //参数
     NSMutableDictionary *parms = [NSMutableDictionary dictionary];
-    parms[@"a"] = @"list";
+    parms[@"a"] = self.a;
     parms[@"c"] = @"data";
     parms[@"type"] = @(self.type);
     self.params = parms;
@@ -142,7 +168,7 @@ static NSString * const XMGTopicCellId = @"topic";
     
     //参数
     NSMutableDictionary *parms = [NSMutableDictionary dictionary];
-    parms[@"a"] = @"list";
+    parms[@"a"] = self.a;
     parms[@"c"] = @"data";
     parms[@"type"] = @(self.type);
     NSInteger page = self.page + 1;

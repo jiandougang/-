@@ -46,32 +46,44 @@
  - (void)layoutSubviews {
     [super layoutSubviews];
      
+     //标记按钮是否已经添加过监听器
+     static BOOL added = NO;
+     
      CGFloat width = self.width;
      CGFloat height = self.height;
-    
-    //设置发布按钮的frame
-//    self.publishButton.width = self.publishButton.currentBackgroundImage.size.width;
-//    self.publishButton.height = self.publishButton.currentBackgroundImage.size.height;
 
     self.publishButton.center = CGPointMake(width * 0.5, height * 0.5);
     
-    //设置其他UITabBarButton的frame
-    CGFloat buttonY = 0;
-    CGFloat buttonW = self.width / 5;
-    CGFloat buttonH = self.height;
-    NSInteger index = 0;
-    for (UIView *button in self.subviews) {
-        if (![button isKindOfClass:[UIControl class]] ||
-            button == self.publishButton
-            )  {
-            continue;
-        }
-    //计算按钮的x值
-        CGFloat buttonX = buttonW * ((index > 1) ? (index + 1) : index);
-        button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
-    //增加索引
-        index++;
+     //设置其他UITabBarButton的frame
+     CGFloat buttonY = 0;
+     CGFloat buttonW = self.width / 5;
+     CGFloat buttonH = self.height;
+     NSInteger index = 0;
+     for (UIControl *button in self.subviews) {
+         if (![button isKindOfClass:[UIControl class]] ||
+             button == self.publishButton
+             )  {
+             continue;
+         }
+         //计算按钮的x值
+         CGFloat buttonX = buttonW * ((index > 1) ? (index + 1) : index);
+         button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
+         //增加索引
+         index++;
+         
+         //监听按钮点击
+         if (added == NO) {
+                 [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+         }
+     
     }
+     
+     added = YES;
+}
+
+- (void)buttonClick {
+    //发出一个通知
+    [XMGNoteCenter postNotificationName:XMGTabBarDidSelectNotification object:nil userInfo:nil];
 }
 
 @end

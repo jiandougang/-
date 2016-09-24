@@ -46,10 +46,11 @@
     
     [self setUpChildVc:[[XMGFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
-    [self setUpChildVc:[[XMGMeViewController alloc] init] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    [self setUpChildVc:[[XMGMeViewController alloc] initWithStyle:UITableViewStyleGrouped] title:@"我" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
     
     //更换tabBar
     [self setValue:[[XMGTabBar alloc] init] forKey:@"tabBar"];
+    
 }
 
 /**
@@ -70,5 +71,6 @@
 
     [self addChildViewController:nav];
 }
+
 
 @end

@@ -27,9 +27,8 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     //设置窗口的根控件器
-    XMGTabBarController *tabBarController = [[XMGTabBarController alloc] init];
-    
-    self.window.rootViewController = tabBarController;
+
+    self.window.rootViewController = [[XMGTabBarController alloc] init];
 
     //显示窗口
     [self.window makeKeyAndVisible];
@@ -40,6 +39,13 @@
     //添加一个window,点击这个window，可以让屏幕上的scrollView滚到最顶部
 //    [XMGTopicWindow show];
     return YES;
+}
+
+#pragma mark -<UITabBarControllerDelegate>
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    
+    //发出一个通知
+    [XMGNoteCenter postNotificationName:XMGTabBarDidSelectNotification object:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

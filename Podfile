@@ -9,4 +9,5 @@ pod "MJExtension"
 pod "MJRefresh"
 pod "DACircularProgress"
 pod "pop"
+pod 'NJKWebViewProgress'
 
